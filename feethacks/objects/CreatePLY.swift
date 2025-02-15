@@ -74,9 +74,10 @@ struct PLYFile: Transferable {
     func uploadData(plyData: Data) {
         let uploader = GCPUploader()
         
+        //upload the data to a GCP bucket
         Task {
             do {
-                uploader.uploadFile(data: plyData, fileName: "exported.ply") { success in
+                uploader.uploadFile(data: plyData, fileName: genUniqueFilename()) { success in
                     if success {
                         print("Upload to GCP completed.")
                     } else {
@@ -85,5 +86,12 @@ struct PLYFile: Transferable {
                 }
             }
         }
+    }
+    
+    //generate a unique filename for uploads
+    func genUniqueFilename(withExtension ext: String = "ply") -> String {
+        let timestamp = Int(Date().timeIntervalSince1970)
+        let uuid = UUID().uuidString
+        return "\(timestamp)-\(uuid).\(ext)"
     }
 }

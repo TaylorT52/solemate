@@ -129,6 +129,7 @@
 		FC3D885C2D5E8C9F0089214E /* feethacks */ = {
 			isa = PBXGroup;
 			children = (
+				FC50E6CC2D613B9E00CB53ED /* GCPManagement */,
 				FC50E6CA2D613B0A00CB53ED /* service-account.json */,
 				FC50E6B62D612ED500CB53ED /* credentials.plist */,
 				FC3D888B2D5E8CF80089214E /* storage */,
@@ -174,10 +175,6 @@
 				FC50E68F2D61088400CB53ED /* ARManager.swift */,
 				FC50E6962D610C1700CB53ED /* PointCloud.swift */,
 				FC50E6982D61121500CB53ED /* CreatePLY.swift */,
-				FC50E6AD2D612BEC00CB53ED /* GCPUploader.swift */,
-				FC50E6BB2D61326400CB53ED /* CredentialManager.swift */,
-				FC50E6BD2D61347D00CB53ED /* GCPJWTGenerator.swift */,
-				FC50E6C82D6139BE00CB53ED /* GCPAuthManager.swift */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -205,6 +202,17 @@
 				FC3D888F2D5E8F2C0089214E /* ARKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC50E6CC2D613B9E00CB53ED /* GCPManagement */ = {
+			isa = PBXGroup;
+			children = (
+				FC50E6AD2D612BEC00CB53ED /* GCPUploader.swift */,
+				FC50E6BB2D61326400CB53ED /* CredentialManager.swift */,
+				FC50E6BD2D61347D00CB53ED /* GCPJWTGenerator.swift */,
+				FC50E6C82D6139BE00CB53ED /* GCPAuthManager.swift */,
+			);
+			path = GCPManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

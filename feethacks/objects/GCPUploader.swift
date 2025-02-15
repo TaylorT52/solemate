@@ -11,43 +11,48 @@ import SwiftUI
 class GCPUploader {
     let bucketName = "scan_uploads"
     
-    var accessToken: String {
-        return "ACCESS TOKEN HERE"
-    }
-    
+    //uploads file
     func uploadFile(data: Data, fileName: String, completion: @escaping (Bool) -> Void) {
-        let urlString = "https://console.cloud.google.com/storage/browser/scan_uploads"
-        
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            completion(false)
-            return
+        //fetch access token from auth manager
+        let authManager = GCPAuthManager()
+        authManager.fetchAccessToken { token in
+            guard let token = token else {
+                print("Failed to fetch access token.")
+                completion(false)
+                return
+            }
+            
+            //construct upload url
+            let urlString = "https://www.googleapis.com/upload/storage/v1/b/\(self.bucketName)/o?uploadType=media&name=\(fileName)"
+            guard let url = URL(string: urlString) else {
+                print("Invalid URL")
+                completion(false)
+                return
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+            request.httpBody = data
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Upload error: \(error.localizedDescription)")
+                    completion(false)
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) {
+                    print("File uploaded successfully!")
+                    completion(true)
+                } else {
+                    print("Upload failed with response: \(String(describing: response))")
+                    completion(false)
+                }
+            }
+            
+            task.resume()
         }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        // Set the OAuth access token in the Authorization header.
-        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
-        request.httpBody = data
-       
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-               print("Upload error: \(error.localizedDescription)")
-               completion(false)
-               return
-           }
-           
-           if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-               print("File uploaded successfully!")
-               completion(true)
-           } else {
-               print("Upload failed with response: \(String(describing: response))")
-               completion(false)
-           }
-        }
-        
-        task.resume()
     }
-    
 }

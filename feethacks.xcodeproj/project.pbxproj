@@ -28,6 +28,8 @@
 		FC50E6C32D6138C300CB53ED /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FC50E6C22D6138C300CB53ED /* GoogleSignIn */; };
 		FC50E6C52D6138C300CB53ED /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FC50E6C42D6138C300CB53ED /* GoogleSignInSwift */; };
 		FC50E6C72D6138CF00CB53ED /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = FC50E6C62D6138CF00CB53ED /* SwiftJWT */; };
+		FC50E6C92D6139BE00CB53ED /* GCPAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50E6C82D6139BE00CB53ED /* GCPAuthManager.swift */; };
+		FC50E6CB2D613B0A00CB53ED /* service-account.json in Resources */ = {isa = PBXBuildFile; fileRef = FC50E6CA2D613B0A00CB53ED /* service-account.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +70,10 @@
 		FC50E6A02D611E0200CB53ED /* PLYSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLYSceneView.swift; sourceTree = "<group>"; };
 		FC50E6AD2D612BEC00CB53ED /* GCPUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCPUploader.swift; sourceTree = "<group>"; };
 		FC50E6B62D612ED500CB53ED /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../../../Desktop/credentials.plist; sourceTree = "<group>"; };
-		FC50E6BA2D61323000CB53ED /* able-plating-451020-e1-3872489fb94e.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "able-plating-451020-e1-3872489fb94e.json"; sourceTree = "<group>"; };
 		FC50E6BB2D61326400CB53ED /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		FC50E6BD2D61347D00CB53ED /* GCPJWTGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCPJWTGenerator.swift; sourceTree = "<group>"; };
+		FC50E6C82D6139BE00CB53ED /* GCPAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCPAuthManager.swift; sourceTree = "<group>"; };
+		FC50E6CA2D613B0A00CB53ED /* service-account.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "service-account.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +129,7 @@
 		FC3D885C2D5E8C9F0089214E /* feethacks */ = {
 			isa = PBXGroup;
 			children = (
-				FC50E6BA2D61323000CB53ED /* able-plating-451020-e1-3872489fb94e.json */,
+				FC50E6CA2D613B0A00CB53ED /* service-account.json */,
 				FC50E6B62D612ED500CB53ED /* credentials.plist */,
 				FC3D888B2D5E8CF80089214E /* storage */,
 				FC3D88892D5E8CE10089214E /* views */,
@@ -174,6 +177,7 @@
 				FC50E6AD2D612BEC00CB53ED /* GCPUploader.swift */,
 				FC50E6BB2D61326400CB53ED /* CredentialManager.swift */,
 				FC50E6BD2D61347D00CB53ED /* GCPJWTGenerator.swift */,
+				FC50E6C82D6139BE00CB53ED /* GCPAuthManager.swift */,
 			);
 			path = objects;
 			sourceTree = "<group>";
@@ -320,6 +324,7 @@
 				FC3D88662D5E8CA00089214E /* Preview Assets.xcassets in Resources */,
 				FC50E6B72D612ED500CB53ED /* credentials.plist in Resources */,
 				FC3D88622D5E8CA00089214E /* Assets.xcassets in Resources */,
+				FC50E6CB2D613B0A00CB53ED /* service-account.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +351,7 @@
 			files = (
 				FC3D88602D5E8C9F0089214E /* ContentView.swift in Sources */,
 				FC50E6972D610C1700CB53ED /* PointCloud.swift in Sources */,
+				FC50E6C92D6139BE00CB53ED /* GCPAuthManager.swift in Sources */,
 				FC50E6992D61121500CB53ED /* CreatePLY.swift in Sources */,
 				FC50E6A12D611E0200CB53ED /* PLYSceneView.swift in Sources */,
 				FC50E69D2D61141D00CB53ED /* ArView.swift in Sources */,

@@ -29,7 +29,7 @@ class GCPJWTGenerator {
         }
         
         let iat = Date()
-        let exp = iat.addingTimeInterval(3600) //1 hr validity
+        let exp = iat.addingTimeInterval(3600) // 1 hour validity
         
         let claims = GoogleServiceAccountClaims(
             iss: creds.client_email,
@@ -41,7 +41,9 @@ class GCPJWTGenerator {
         
         var jwt = JWT(claims: claims)
         
-        let privateKeyData = Data(creds.private_key.utf8)
+        // Convert the escaped newline characters into actual newlines.
+        let formattedPrivateKey = creds.private_key.replacingOccurrences(of: "\\n", with: "\n")
+        let privateKeyData = Data(formattedPrivateKey.utf8)
         let jwtSigner = JWTSigner.rs256(privateKey: privateKeyData)
         
         return try jwt.sign(using: jwtSigner)

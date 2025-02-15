@@ -1,0 +1,22 @@
+# Xcode
+*.xcworkspace
+xcuserdata/
+DerivedData/
+build/
+
+# Swift Package Manager
+.build/
+Package.resolved
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Service account credentials (example)
+service-account.json
+*.json
+
+# Other temporary or system files
+.DS_Store

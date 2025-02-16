@@ -20,7 +20,12 @@ struct WelcomeView: View {
                 .padding(.vertical)
             Text("Find your perfect shoe match")
                 .padding(.vertical)
-            Spacer()
+
+       Image("heart_foot") // Replace with your asset name
+           .resizable() // Makes the image scalable
+           .scaledToFit() // Ensures it maintains aspect ratio
+           .frame(width: 300, height: 300) // Set desired size
+        
             Button {
                 appMode = .instructionsView
             } label: {

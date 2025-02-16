@@ -189,9 +189,9 @@ struct PLYFile: Transferable {
         let uploader = GCPUploader()
         
         Task {
-            uploader.uploadFile(data: plyData, fileName: genUniqueFilename()) { success in
+            uploader.uploadFile(data: plyData, fileName: genUniqueFilename()) { success, filePath in
                 if success {
-                    print("Upload to GCP completed.")
+                    print("Upload to GCP completed. File path: \(filePath ?? "No file path returned")")
                 } else {
                     print("Upload to GCP failed.")
                 }

@@ -17,6 +17,7 @@
 		FC3D88902D5E8F2C0089214E /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3D888F2D5E8F2C0089214E /* ARKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (Required, ); }; };
 		FC4CBBFB2D61582500F8338D /* FootSegmentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4CBBFA2D61582500F8338D /* FootSegmentation.swift */; };
 		FC4CBBFD2D615A9800F8338D /* FootMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4CBBFC2D615A9800F8338D /* FootMeasurement.swift */; };
+		FC4CBBFF2D619A1800F8338D /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4CBBFE2D619A1800F8338D /* InstructionsView.swift */; };
 		FC50E6902D61088400CB53ED /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50E68F2D61088400CB53ED /* ARManager.swift */; };
 		FC50E6972D610C1700CB53ED /* PointCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50E6962D610C1700CB53ED /* PointCloud.swift */; };
 		FC50E6992D61121500CB53ED /* CreatePLY.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC50E6982D61121500CB53ED /* CreatePLY.swift */; };
@@ -66,6 +67,7 @@
 		FC3D888F2D5E8F2C0089214E /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk/System/Library/Frameworks/ARKit.framework; sourceTree = DEVELOPER_DIR; };
 		FC4CBBFA2D61582500F8338D /* FootSegmentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootSegmentation.swift; sourceTree = "<group>"; };
 		FC4CBBFC2D615A9800F8338D /* FootMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootMeasurement.swift; sourceTree = "<group>"; };
+		FC4CBBFE2D619A1800F8338D /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		FC50E68F2D61088400CB53ED /* ARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 		FC50E6962D610C1700CB53ED /* PointCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCloud.swift; sourceTree = "<group>"; };
 		FC50E6982D61121500CB53ED /* CreatePLY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePLY.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				FC50E69C2D61141D00CB53ED /* ArView.swift */,
 				FC50E69E2D611CB200CB53ED /* WelcomeView.swift */,
 				FC50E6A02D611E0200CB53ED /* PLYSceneView.swift */,
+				FC4CBBFE2D619A1800F8338D /* InstructionsView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4CBBFD2D615A9800F8338D /* FootMeasurement.swift in Sources */,
+				FC4CBBFF2D619A1800F8338D /* InstructionsView.swift in Sources */,
 				FC3D88602D5E8C9F0089214E /* ContentView.swift in Sources */,
 				FC50E6972D610C1700CB53ED /* PointCloud.swift in Sources */,
 				FC4CBBFB2D61582500F8338D /* FootSegmentation.swift in Sources */,

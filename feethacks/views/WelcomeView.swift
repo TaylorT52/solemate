@@ -10,20 +10,19 @@ import SwiftUI
 
 struct WelcomeView: View {
     @Binding var appMode: AppMode
-    @State private var showAlert = false
     @Environment(\.colorScheme) var colorScheme
    
     var body: some View {
         VStack {
             Spacer()
             Text("Solemate")
-                .font(.system(size: 35, weight: .bold, design: .rounded))
+                .font(.system(size: 35, weight: .bold))
                 .padding(.vertical)
             Text("Find your perfect shoe match")
                 .padding(.vertical)
             Spacer()
             Button {
-                showAlert = true
+                appMode = .instructionsView
             } label: {
                 Text("Create an AR Scan")
                     .font(.headline)
@@ -36,14 +35,6 @@ struct WelcomeView: View {
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(colorScheme == .dark ? Color.white : Color.black, lineWidth: 2)
                     )
-            }
-            .alert("AR Scan Instructions", isPresented: $showAlert) {
-                Button("Continue", role: .cancel) {
-                    appMode = .ar
-                }
-                Button("Cancel", role: .destructive) { }
-            } message: {
-                Text("Point your camera at the bottom of your foot (wear white socks!) and press play to create a scan.")
             }
             
             Spacer()

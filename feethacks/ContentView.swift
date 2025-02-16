@@ -10,6 +10,7 @@ import SwiftUI
 enum AppMode {
     case welcome
     case ar
+    case instructionsView
     case plyDisplay
 }
 
@@ -21,6 +22,8 @@ struct ContentView: View {
         switch(appMode){
         case .welcome:
             WelcomeView(appMode: $appMode)
+        case .instructionsView:
+            InstructionsView(appMode: $appMode)
         case .ar:
             arView(arManager: arManager, appmode: $appMode)
         case .plyDisplay: 

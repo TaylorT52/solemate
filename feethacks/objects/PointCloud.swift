@@ -10,6 +10,9 @@ import ARKit
 
 
 actor PointCloud {
+    private var UPPERBOUND_DEPTH: Float32 = 0.5  // 50cm max depth
+    private var LOWERBOUND_DEPTH: Float32 = 0.1
+
     //to create a point cloud
     struct GridKey: Hashable {
         static let density: Float = 100
@@ -32,6 +35,10 @@ actor PointCloud {
     
     //create arr of vertices
     private(set) var vertices: [GridKey: Vertex] = [:]
+    
+    func addVertex(key: GridKey, vertex: Vertex) {
+        vertices[key] = vertex
+    }
     
     //process frame by frame
     func process(frame: ARFrame) async {
@@ -58,9 +65,8 @@ actor PointCloud {
                             
                 // get distance value from
                 let depth = depthBuffer.value(x: col, y: row)
-                            
-                // filter points by distance
-                if depth > 2 { return }
+                
+                if depth < LOWERBOUND_DEPTH || depth > UPPERBOUND_DEPTH { continue }
                             
                 let normalizedCoord = simd_float2(Float(col) / Float(depthBuffer.size.width),
                                                   Float(row) / Float(depthBuffer.size.height))
@@ -76,13 +82,15 @@ actor PointCloud {
                     
                 // Normalizes the result.
                 let resulPosition = (worldPoint / worldPoint.w)
-                    
+ 
                 let pointPosition = SCNVector3(x: resulPosition.x,
                                                y: resulPosition.y,
                                                z: resulPosition.z)
 
+                
                 let key = PointCloud.GridKey(pointPosition)
                     
+                
                 if vertices[key] == nil {
                     let pixelRow = Int(round(normalizedCoord.y * imageSize.y))
                     let pixelColumn = Int(round(normalizedCoord.x * imageSize.x))
@@ -95,6 +103,7 @@ actor PointCloud {
             }
         }
     }
+    
     
     func makeRotateToARCameraMatrix(orientation: UIInterfaceOrientation) -> matrix_float4x4 {
         //flip y, z to align with ARKit's coordinates

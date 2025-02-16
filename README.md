@@ -10,3 +10,5 @@
 - Run the provided script (process.py) on your scan
 - You're given a custom insole which is printable and in a .obj format
 - Print it yourself, or send this to anyone with a printer
+
+### Devpost: https://devpost.com/software/solemate-9jmhuf

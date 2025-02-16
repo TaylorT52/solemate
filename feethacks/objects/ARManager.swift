@@ -31,6 +31,7 @@ actor ARManager: NSObject, ARSessionDelegate, ObservableObject {
         // start session
         let configuration = ARWorldTrackingConfiguration()
         configuration.frameSemantics = .sceneDepth
+        configuration.frameSemantics.insert(.personSegmentationWithDepth)
         sceneView.session.run(configuration)
         
         //add geo node for visualization

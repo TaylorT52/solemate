@@ -37,8 +37,23 @@ struct PLYSceneView: View {
             .padding()
         } .task {
             do {
+                // Get the current ARFrame from the ARSCNView
+                guard let currentFrame = arManager.sceneView.session.currentFrame else {
+                    errorMessage = "No ARFrame available."
+                    return
+                }
+                
+                // Extract the camera position from the transform
+                let cameraTransform = currentFrame.camera.transform
+                let cameraPosition = SCNVector3(
+                    x: cameraTransform.columns.3.x,
+                    y: cameraTransform.columns.3.y,
+                    z: cameraTransform.columns.3.z
+                )
+                
+                // Create the PLY file with the point cloud and pass the camera position
                 let plyFile = PLYFile(pointCloud: arManager.pointCloud)
-                let plyData = try await plyFile.export()
+                let plyData = try await plyFile.export(cameraPosition: cameraPosition)
                 let fileURL = try writePLYDataToTempFile(data: plyData)
                 if let loadedScene = loadPLYScene(from: fileURL) {
                     scene = loadedScene
@@ -49,6 +64,7 @@ struct PLYSceneView: View {
                 errorMessage = error.localizedDescription
             }
         }
+
     }
     
     // Helper functions to write data and load the scene

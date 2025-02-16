@@ -543,6 +543,7 @@
 				DEVELOPMENT_TEAM = 2S2PR9NBZ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=*]" = Solemate;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses a camera to capture images. ";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -581,6 +582,7 @@
 				DEVELOPMENT_TEAM = 2S2PR9NBZ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=*]" = Solemate;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses a camera to capture images. ";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

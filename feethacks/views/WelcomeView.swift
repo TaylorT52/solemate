@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @Binding var appMode: AppMode
+    @State private var showAlert = false
     @Environment(\.colorScheme) var colorScheme
    
     var body: some View {
@@ -22,20 +23,29 @@ struct WelcomeView: View {
                 .padding(.vertical)
             Spacer()
             Button {
-                appMode = AppMode.ar
+                showAlert = true
             } label: {
                 Text("Create an AR Scan")
                     .font(.headline)
-                    .foregroundColor(colorScheme == .dark ? .white : .black) // Ensure text is visible
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
                     .padding()
                     .frame(width: 200)
-                    .background(colorScheme == .dark ? Color.black : Color.white) // Add a background
+                    .background(colorScheme == .dark ? Color.black : Color.white)
                     .cornerRadius(15)
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(colorScheme == .dark ? Color.white : Color.black, lineWidth: 2) // Outline border
+                            .stroke(colorScheme == .dark ? Color.white : Color.black, lineWidth: 2)
                     )
             }
+            .alert("AR Scan Instructions", isPresented: $showAlert) {
+                Button("Continue", role: .cancel) {
+                    appMode = .ar
+                }
+                Button("Cancel", role: .destructive) { }
+            } message: {
+                Text("Point your camera at the bottom of your foot (wear white socks!) and press play to create a scan.")
+            }
+            
             Spacer()
         }
     }
